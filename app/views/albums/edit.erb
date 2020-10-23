@@ -1,0 +1,8 @@
+<h1>Edit An Album</h1>
+
+<form method="POST" action="/albums<%= @post.id %>">
+<input type="hidden" id="hidden" name="_method">
+    <input type="text" name="title" placeholder="Album Title">
+    <input type="text" name="artist" placeholder="Artist/Band Name">
+    <input type="submit">
+</form>
