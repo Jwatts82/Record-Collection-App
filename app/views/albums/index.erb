@@ -1,0 +1,9 @@
+<h1>My Albums</h1>
+<hr>
+<br>
+<% @albums.each do |a| %>
+<p><a href="/albums/<%= a.id %>"><%= a.title %></a></p>
+
+<%end%>
+
+<a href="/albums/new">Add Album</a>

@@ -13,13 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20201023021051) do
 
-  create_table "album", force: :cascade do |t|
+  create_table "albums", force: :cascade do |t|
     t.string  "title"
     t.string  "artist"
     t.integer "user_id"
   end
 
-  create_table "user", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
   end
