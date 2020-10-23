@@ -1,8 +1,12 @@
 class AlbumsController < ApplicationController
 
     get '/albums' do
-        @albums = Album.all
-        erb :'albums/index'
+        if logged_in?
+            @albums = current_user.albums
+            erb :'albums/index'
+        else
+            redirect '/sesisons/login'
+        end
     end
 
     get '/albums/new' do
