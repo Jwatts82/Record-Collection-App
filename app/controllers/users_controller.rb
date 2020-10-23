@@ -5,14 +5,14 @@ class UsersController < ApplicationController
     end
 
     post "/users" do
-        # binding.pry
-        user = User.new(
-            name: params[:name],  
-            email: params[:email],  
-            password: params[:password]  
-        )
-        if user.save
-            session[:user_id] = user.id
+
+        @user = User.new(params)
+            #name: params[:name],  
+            #email: params[:email],  
+            #password: params[:password]  
+        #)
+        if @user.save
+            session[:user_id] = @user.id
             redirect '/albums'
         else
             redirect '/signup'
