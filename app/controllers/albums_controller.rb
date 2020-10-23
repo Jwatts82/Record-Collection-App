@@ -29,9 +29,11 @@ class AlbumsController < ApplicationController
 
     get '/albums/:id/edit' do
         if logged_in?
-            @post = current_user.albums.find_by(params)
+            @album = current_user.albums.find_by(params)
+        
             if @album
-                erb :'posts/edit'
+                #binding.pry
+                erb :'albums/edit'
             else
                 redirect "/albums"
             end
@@ -41,6 +43,7 @@ class AlbumsController < ApplicationController
     end
 
     patch '/albums/:id' do
+        #binding.pry
         album = current_user.albums.find_by(id: params[:id])
         
         if album.update(title: params[:title], artist: params[:artist])
