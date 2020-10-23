@@ -8,4 +8,5 @@ end
 use Rack::MethodOverride
 use AlbumsController
 use UsersController
+use SessionsController
 run ApplicationController
