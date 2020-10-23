@@ -20,13 +20,18 @@ class AlbumsController < ApplicationController
     end
 
     get '/albums/:id/edit' do
-        @users = User.all
         @post = Post.find_by(params)
         erb :'posts/edit'
     end
 
     patch '/albums/:id' do
-        binding.pry
+        album = Album.find_by(id: params[:id])
+        
+        if album.update(title: params[:title], artist: params[:artist])
+            redirect "/albums/#{album.id}"
+        else
+            redirect "/albums/#{album.id}/edit"
+        end
     end
 
 
@@ -40,5 +45,11 @@ class AlbumsController < ApplicationController
         end
     end
     
+    delete '/albums/:id' do
+        @album = Album.find_by(id: params[:id])
+        @album.destroy
+        redirect '/albums'
+
+    end
 
 end
