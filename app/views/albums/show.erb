@@ -1,12 +1,14 @@
-<h2><%= @album.title %></h2>
+<h2>Album: <%= @album.title %></h2>
 <hr>
 <br>
-<p><%= @album.artist %></p>
-<p><%= @album.release_year %></p>
-<p><%= @album.duration %></p>
-<p><%= @album.genre %></p>
 
-<a href="/albums/<%= @album.id %>" method="Delete">Delete</a>
+<p><b>Artist:</b> <%= @album.artist %></p>
+<p><b>Release Year:</b> <%= @album.release_year %></p>
+<p><b>Duration:</b> <%= @album.duration %></p>
+<p><b>Genre:</b> <%= @album.genre %></p>
+
+
+<a href="/albums/<%= @album.id %>" method="Delete">Delete Album</a>
 <a href="/albums/<%= @album.id %>/edit">Edit</a> 
-<br>
 <a href="/albums">Go Back</a>
+

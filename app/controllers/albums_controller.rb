@@ -41,12 +41,12 @@ class AlbumsController < ApplicationController
             redirect "/login"
         end   
     end
-
+    
     patch '/albums/:id' do
-        #binding.pry
-        album = current_user.albums.find_by(id: params[:id])
         
-        if album.update(title: params[:title], artist: params[:artist])
+        album = current_user.albums.find_by(id: params[:id])
+    
+        if album.update(title: params[:title], artist: params[:artist], realease_year: params[:release_year], duration: params[:duration], genre: params[:genre])
             redirect "/albums/#{album.id}"
         else
             redirect "/albums/#{album.id}/edit"
