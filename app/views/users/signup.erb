@@ -1,18 +1,10 @@
 <h2>Sign Up!</h2>
 
-<label>Name: 
-        <input type="text" name="player[name]">
-</label>
-<br>
-<label>E-Mail:
-    <input type="email" name="email">
-</label>
-<br>
-<label>Password:
-    <input type="password" name="password">
-</label>
-<br>
-    <input type="submit" value="Sign Up">
+<form method="POST" action="/signup">
+<input type="text" name="name" placeholder="username">
+<input type="text" name="email" placeholder="email address">
+<input type="password" name="password" placeholder="password">
+<input type="submit">
 </form>
 
 <a href="/">Back</a>
