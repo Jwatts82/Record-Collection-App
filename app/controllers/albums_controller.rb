@@ -2,8 +2,8 @@ class AlbumsController < ApplicationController
 
     get '/albums' do
         if logged_in?
-            @albums = current_user.albums
-            erb :'albums/index'
+        @albums = current_user.albums 
+        erb :'albums/index'
         else
             redirect '/login'
         end
@@ -18,19 +18,20 @@ class AlbumsController < ApplicationController
     end
 
     post '/albums' do
-        binding.pry
         album = current_user.albums.build(params)
+        #user = User.find_by(id: params[:user_id])
+        #album = user.albums.build(params)
         if album.save
             redirect "/albums/#{album.id}"
         else
-            redirect '/albums/new'
+            redirect 'albums/new'
         end
+
     end
 
     get '/albums/:id/edit' do
         if logged_in?
             @album = current_user.albums.find_by(params)
-        
             if @album
                 #binding.pry
                 erb :'albums/edit'
@@ -43,18 +44,22 @@ class AlbumsController < ApplicationController
     end
     
     patch '/albums/:id' do
-        
         album = current_user.albums.find_by(id: params[:id])
-    
-        if album.update(title: params[:title], artist: params[:artist], realease_year: params[:release_year], duration: params[:duration], genre: params[:genre])
-            redirect "/albums/#{album.id}"
+        if album
+            if album.update(title: params[:title], artist: params[:artist], realease_year: params[:release_year], duration: params[:duration], genre: params[:genre])
+                redirect "/albums/#{album.id}"
+            else
+                redirect "/albums"
+            end
         else
-            redirect "/albums/#{album.id}/edit"
+            redirect '/albums'
         end
+
     end
 
 
     get '/albums/:id' do
+        #binding.pry
         if logged_in?
             @album = current_user.albums.find_by(id: params[:id])
             
@@ -69,12 +74,12 @@ class AlbumsController < ApplicationController
     end
     
     delete '/albums/:id' do
-        if loggedin?
+        if logged_in?
             @album = current_user.albums.find_by(id: params[:id])
             if @album
                 @album.destroy
             end
-            redirect '/albums'
+            redirect "/albums"
         else
             redirect '/login'
         end

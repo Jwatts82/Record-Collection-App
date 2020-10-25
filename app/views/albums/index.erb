@@ -2,8 +2,10 @@
 <hr>
 <br>
 <% @albums.each do |a| %>
-<p><a href="/albums/<%= a.id %>"><%= a.title %></a></p>
+    <p><a href="/albums/<%= a.id %>"><%= a.title %></a></p>
 
 <%end%>
 
-<a href="/albums/new">Add Album</a>
+<a href="/albums/new"><button>Add Album</button></a>
+<br>
+<a href="/logout"><button>Logout</button></a>

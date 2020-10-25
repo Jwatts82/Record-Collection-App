@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         if logged_in?
             redirect "/albums"
         else
-            erb :'/users/signup'
+            erb :'users/signup'
         end
     end
 
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         if user.save
             redirect "/login"
         else 
-            erb :"/users/signup"
+            redirect "/signup"
         end
     end
 
