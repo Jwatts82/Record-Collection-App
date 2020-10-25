@@ -19,8 +19,7 @@ class AlbumsController < ApplicationController
 
     post '/albums' do
         album = current_user.albums.build(params)
-        #user = User.find_by(id: params[:user_id])
-        #album = user.albums.build(params)
+
         if album.save
             redirect "/albums/#{album.id}"
         else
@@ -29,11 +28,27 @@ class AlbumsController < ApplicationController
 
     end
 
+    get '/albums/:id' do
+        #binding.pry
+        if logged_in?
+            @album = current_user.albums.find_by(id: params[:id])
+        
+            if @album
+                erb :'albums/show'
+            else
+                redirect '/albums'
+            end
+        else
+            redirect '/login'
+        end
+    end
+
     get '/albums/:id/edit' do
+        #binding.pry
         if logged_in?
             @album = current_user.albums.find_by(params)
             if @album
-                #binding.pry
+
                 erb :'albums/edit'
             else
                 redirect "/albums"
@@ -41,48 +56,59 @@ class AlbumsController < ApplicationController
         else
             redirect "/login"
         end   
+#binding.pry
     end
-    
+
     patch '/albums/:id' do
         album = current_user.albums.find_by(id: params[:id])
-        if album
-            if album.update(title: params[:title], artist: params[:artist], realease_year: params[:release_year], duration: params[:duration], genre: params[:genre])
-                redirect "/albums/#{album.id}"
-            else
-                redirect "/albums"
-            end
+    
+        #if album
+        if album.update(title: params[:title], artist: params[:artist], release_year: params[:release_year], duration: params[:duration], genre: params[:genre])
+            redirect "/albums/#{album.id}"
         else
-            redirect '/albums'
+            redirect "/albums/#{post.id}/edit"
         end
-
-    end
-
-
-    get '/albums/:id' do
-        #binding.pry
-        if logged_in?
-            @album = current_user.albums.find_by(id: params[:id])
-            
-            if @album
-                erb :'albums/show'
-            else
-                redirect '/albums'
-            end
-        else
-            redirect '/loggin'
-        end
+        #else
+         #   redirect '/albums'
+        #end
     end
     
     delete '/albums/:id' do
-        if logged_in?
-            @album = current_user.albums.find_by(id: params[:id])
-            if @album
-                @album.destroy
-            end
-            redirect "/albums"
-        else
-            redirect '/login'
+     album = Album.find_by(id: params[:id])
+
+        if !User.logged_in?(session) || User.current_user(session).id != album.user.id
+            redirect '/albums'
         end
+
+        if album
+            album.destroy
+        end
+
+        redirect '/albums'
     end
+     
+     
+     
+     
+     
+     
+     
+        #@album = Album.find_by_id(params[:id])
+        #if logged_in? && @item.user == current_user
+         #   @album.destroy
+          #  redirect '/albums'
+       #else
+        #    redirect '/login'
+       #end
+    #end
+       
+        # if logged_in?
+        #    @album = current_user.albums.find_by(id: params[:id])
+         ##      @album.delete
+           # end
+            #redirect "/albums"
+        #else
+         #   redirect '/login'
+        #end
 
 end

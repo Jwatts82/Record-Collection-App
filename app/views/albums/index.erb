@@ -2,7 +2,7 @@
 <hr>
 <br>
 <% @albums.each do |a| %>
-    <p><a href="/albums/<%= a.id %>"><%= a.title %></a></p>
+    <p><a href="/albums/<%= a.id %>"><%= a.title %> - <%= a.artist %></a></p>
 
 <%end%>
 

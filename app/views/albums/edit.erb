@@ -1,7 +1,7 @@
 <h1>Edit An Album</h1>
 
 <form method="POST" action="/albums<%= @album.id %>">
-<input type="hidden" id="hidden" name="_method">
+<input type="hidden" id="hidden" name="_method" value="patch">
     <p> Album Title: <br> <input type="text" name="title" value="<%=@album.title%>" placeholder="Album Title"></p>
     <p> Artist: <br> <input type="text" name="artist" value="<%=@album.artist%>" placeholder="Artist/Band Name"></p>
     <p> Release Year: <br> <input type="integer" name="release_year" value="<%=@album.release_year%>" placeholder="release_year"></p>
