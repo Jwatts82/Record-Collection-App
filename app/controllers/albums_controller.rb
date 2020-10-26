@@ -68,16 +68,16 @@ class AlbumsController < ApplicationController
     end
     
 
-    #delete '/albums/:id' do
-     #   if logged_in?
-      #      @album = current_user.albums.find_by(id: params[:id])
-       #     if  @album
-        #        @album.delete
-         #   end
-          #  redirect '/albums'
-        #else
-         #   redirect '/login'
-        #end
-    #end
+    delete '/albums/:id' do
+        if logged_in?
+            @album = current_user.albums.find_by(id: params[:id])
+            if  @album
+                @album.delete
+            end
+            redirect '/albums'
+        else
+            redirect '/login'
+        end
+    end
 
 end
