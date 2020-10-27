@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
 
     get '/albums' do
         if logged_in?
-        @albums = current_user.albums 
+        @albums = current_user.albums.sort {|a, b| a.title <=> b.title }
         erb :'albums/index'
         else
             redirect '/login'
