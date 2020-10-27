@@ -1,12 +1,25 @@
 <h2>Create A New Album</h2>
 <hr>
 <br>
-<form method="POST" action="/albums">
-    <input type="text" name="title" placeholder="Album Title">
-    <input type="text" name="artist" placeholder="Artist/Band Name">
-    <input type="integer" name="release_year" placeholder="Release Year">
-    <input type="deciaml" name="duration" placeholder="Duration">
-    <input type="text" name="genre" placeholder="Genre">
-    <input type="submit">
+<form method="POST" action="/albums" class="main-form">
+    <div class="form-group"> 
+        <input type="text" name="title" placeholder="Album Title" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="artist" placeholder="Artist/Band Name" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="release_year" placeholder="Release Year" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="duration" placeholder="Duration" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="genre" placeholder="Genre" class="form-control">
+    </div>
+    <br>
+    <input type="submit" class="btn btn-outline-primary">
 </form>
-
+<br>
+<br>
+<a href="/">Back</a>
