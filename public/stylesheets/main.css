@@ -113,3 +113,8 @@
     line-height: 24px;
   }
 }
+
+  .main-form {
+    width: 450px;
+    margin: auto
+  }
