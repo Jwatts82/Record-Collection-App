@@ -8,10 +8,12 @@
 <p><b>Genre:</b> <%= @album.genre %></p>
 <form method="POST" action="/albums/<%= @album.id%>">
     <input type="hidden" id="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
+    <a class="btn btn-outline-primary" href="/albums/<%= @album.id %>/edit" role="button">Delete</a>
+    <a class="btn btn-outline-primary" href="/albums/<%= @album.id %>/edit" role="button">Edit</a>
 </form>
-<a href="/albums/<%= @album.id %>/edit">Edit</a> 
 <br>
 <br> 
-<a href="/albums"><button>Go Back</button></a>
+<a href="/albums">Back</a>
+
+
 
