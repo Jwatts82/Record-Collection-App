@@ -7,15 +7,17 @@
 <p><b>Duration:</b> <%= @album.duration %></p>
 <p><b>Genre:</b> <%= @album.genre %></p>
 <form method="POST" action="/albums/<%= @album.id%>">
+    <br>
     <input type="hidden" id="hidden" name="_method" value="delete">
-    <input class="btn btn-outline-primary" type="submit" value="Delte Album" id ="Delete Itme">
+    <input class="btn btn-outline-primary" type="submit" value="Delete Album" id ="Delete Album">
     <br>
     <br>
     <a class="btn btn-outline-primary" href="/albums/<%= @album.id %>/edit" role="button">Edit</a>
 </form>
 <br>
 <br> 
-<a href="/albums">Back</a>
+<br>
+<a href="/albums">Back to Album Collection</a>
 
 
 
