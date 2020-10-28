@@ -4,7 +4,7 @@ Welcome to the Record Collection application! This application provides users th
 
 ##Installation
 
-To use this app, clone this repo.
+To use this app, clone this [repo](https://github.com/Jwatts82/Record-Collection-App.git).
 
 And then execute:
 
@@ -13,14 +13,14 @@ $ `bundle`
 ##Usage
 
 After cloning the repository and running bundle: 
-Step 1) Run: rake db:migrate
-Step 2) Run: shotgun
+Step 1) Run: `rake db:migrate`
+Step 2) Run: `shotgun`
 
 ##License
 
-The app is available as open source under the terms of the MIT License
+The app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT)
 
 ##Code of Conduct
 
-Everyone interacting in the BPTracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+Everyone interacting in the BPTracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct. [code of conduct](https://github.com/[USERNAME]/bptraker/blob/master/CODE_OF_CONDUCT.md)
 
