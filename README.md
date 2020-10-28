@@ -1,1 +1,1 @@
-
+<h1>Record Collector App</h1>
