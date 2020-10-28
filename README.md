@@ -20,7 +20,3 @@ Step 2) Run: `shotgun`
 
 The app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT)
 
-<h2>Code of Conduct<h2>
-
-<h3>Everyone interacting in the BPTracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct. [code of conduct](https://github.com/[USERNAME]/bptraker/blob/master/CODE_OF_CONDUCT.md)</h3>
-
